@@ -9,17 +9,17 @@ crontab -e
 I am using the Reserve Ohio for my searches however CAMPLY supports a full range of options.
 
 # Search For Park Info
-'''bash
+```bash
 camply campgrounds --search "Scioto Trail State Park" --provider OhioStateParks
-'''
+```
 
 ## Site List for a Park
-'''bash
+```bash
 camply list-campsites --campground 554 --provider OhioStateParks
-'''
+```
 
 ### Output
-'''bash
+```bash
 [2024-08-29 12:11:55] INFO     🏕  Stewart Lake Campground - (#554)              
 [2024-08-29 12:11:55] INFO         ⛺️ Campsite non-electric #056 - (#23732)     
 [2024-08-29 12:11:55] INFO         ⛺️ Campsite non-electric #057 - (#23733)     
@@ -38,31 +38,31 @@ camply list-campsites --campground 554 --provider OhioStateParks
 [2024-08-29 12:11:55] INFO         ⛺️ Campsite non-electric #070 - (#23746)     
 [2024-08-29 12:11:55] INFO         ⛺️ Campsite non-electric #071 - (#23747)     
 [2024-08-29 12:11:55] INFO         ⛺️ Campsite non-electric #072 - (#23748)
-'''
+```
 
 # Search For a Specific Site
 Command Line
-'''bash
+```bash
 camply campsites   --provider OhioStateParks   --campground 554   --campsite 23738   --start-date 2024-08-31   --end-date 2024-09-01
-'''
+```
 
 Pretty View
-'''bash
+```bash
 camply campsites \
   --provider OhioStateParks \
   --campground 554 \
   --campsite 23738 \
   --start-date 2024-08-31 \
   --end-date 2024-09-01
-'''
+```
 
 ## Slack Example
-'''bash
+```bash
 camply campsites   --provider OhioStateParks   --campground 554   --campsite 23738   --start-date 2024-08-31   --end-date 2024-09-01 --notifications slack
-'''
+```
 
 ## Webhook Example
 Raw Output
-'''json
+```json
 {"stdout": "[2024-08-30 16:29:54] CAMPLY   camply, the campsite finder \u26fa\ufe0f                                                        \n[2024-08-30 16:29:54] INFO     Using Camply Provider: \"OhioStateParks\"                                               \n[2024-08-30 16:29:54] INFO     1 booking nights selected for search, ranging from 2024-08-31 to 2024-08-31           \n[2024-08-30 16:29:54] INFO     Searching Specific campsite: Campsite non-electric #062                               \n[2024-08-30 16:29:54] INFO     Searching across 1 campgrounds                                                        \n[2024-08-30 16:29:54] INFO         \u26f0  Scioto Trail State Park (#375) - \ud83c\udfd5  Stewart Lake Campground (#554)             \n[2024-08-30 16:29:54] INFO     Searching Stewart Lake Campground, Scioto Trail State Park (554) for availability:    \n                               August, 2024                                                                          \n[2024-08-30 16:29:55] INFO             \u26fa\ufe0f      1 total sites found in month of August                                \n[2024-08-30 16:29:55] INFO     \u26fa\ufe0f \u26fa\ufe0f \u26fa\ufe0f \u26fa\ufe0f 1 Reservable Campsites Matching Search Preferences                        \n[2024-08-30 16:29:55] INFO     \ud83d\udcc5 Sat, August 31 \ud83c\udfd5  1 sites                                                          \n[2024-08-30 16:29:55] INFO             \u26f0\ufe0f  Scioto Trail State Park  \ud83c\udfd5  Stewart Lake Campground: \u26fa 1 sites            \n[2024-08-30 16:29:55] INFO                     \ud83d\udd17 https://www.OhioStateParks.com/OhioCampWeb#!park/375/554 (1 night) \n[2024-08-30 16:29:55] CAMPLY   Exiting camply \ud83d\udc4b                                                                     \n", "stderr": "", "returncode": 0}
-'''
+```
