@@ -1,18 +1,61 @@
 import subprocess
 import requests
 
-# Define your search parameters
-campground_id = 554
+# Search parameters
+campground_id = "554"
+campsite = "23738"
+start_date = "2024-08-31"
+end_date = "2024-09-01"
 provider = "OhioStateParks"
 webhook_url = "http://localhost:5000/api/webhook/camply"  # Use HTTP and port 5000
 
+# ToDo: Break this script out into one that reads from an input file or Web API to get a users search parameters from the BOT
+# Site Listing for a given park
 # Run the camply CLI command to list campsites
+#command = [
+#    "camply", "list-campsites",
+#    "--campground", str(campground_id),
+#    "--provider", provider
+#]
+
+# Specific Site Search
+# camply campsites   --provider OhioStateParks   --campground 554   --campsite 23738   --start-date 2024-08-31   --end-date 2024-09-01
 command = [
-    "camply", "list-campsites",
+    "camply", "campsites",
     "--campground", str(campground_id),
+    "--campsite", str(campsite),
+    "--start-date", start_date,
+    "--end-date", end_date,
     "--provider", provider
 ]
 
+print("Constructed command:", command)
+
+# Code for the Park Site(s) listing call
+result = subprocess.run(command, capture_output=True, text=True)
+
+# Print the command output for debugging
+print("Command output:", result.stdout)
+print("Command error (if any):", result.stderr)
+
+# Extract relevant information
+output = {
+    "stdout": result.stdout,  # The standard output of the command
+    "stderr": result.stderr,  # The standard error of the command
+    "returncode": result.returncode  # The return code of the command
+}
+
+# Send the result to the webhook
+response = requests.post(webhook_url, json=output)
+
+# Check the response from the webhook
+if response.status_code == 200:
+    print("Successfully sent to webhook")
+else:
+    print(f"Failed to send to webhook, status code: {response.status_code}")
+
+# Code for the Park Site(s) listing call
+'''
 try:
     result = subprocess.run(command, capture_output=True, text=True, check=True)
     output = result.stdout
@@ -44,3 +87,4 @@ except subprocess.CalledProcessError as e:
     print(f"An error occurred while running camply: {e}")
     print(f"Standard Output:\n{e.stdout}")
     print(f"Standard Error:\n{e.stderr}")
+'''
