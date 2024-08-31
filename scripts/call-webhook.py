@@ -9,6 +9,14 @@ end_date = "2024-09-01"
 provider = "OhioStateParks"
 webhook_url = "http://localhost:5000/api/webhook/camply"  # Use HTTP and port 5000
 
+# Command Codes
+# ToDo: THis script file will become an Azure Function with an HTTP Trigger
+# Commmands to include the various Camply Search Types
+# "campsite" - search specific site availablity at a park
+# "list-campsites" - list all sites at a park
+# "campground" - search sites available at a park
+
+
 # ToDo: Break this script out into one that reads from an input file or Web API to get a users search parameters from the BOT
 # Site Listing for a given park
 # Run the camply CLI command to list campsites
@@ -21,7 +29,7 @@ webhook_url = "http://localhost:5000/api/webhook/camply"  # Use HTTP and port 50
 # Specific Site Search
 # camply campsites   --provider OhioStateParks   --campground 554   --campsite 23738   --start-date 2024-08-31   --end-date 2024-09-01
 command = [
-    "camply", "campsites",
+    "camply", "campground",
     "--campground", str(campground_id),
     "--campsite", str(campsite),
     "--start-date", start_date,
@@ -40,6 +48,7 @@ print("Command error (if any):", result.stderr)
 
 # Extract relevant information
 output = {
+    "command": "campsite",
     "stdout": result.stdout,  # The standard output of the command
     "stderr": result.stderr,  # The standard error of the command
     "returncode": result.returncode  # The return code of the command

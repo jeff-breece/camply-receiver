@@ -1,6 +1,8 @@
 using Microsoft.OpenApi.Models;
 using System.Text.RegularExpressions;
 using Helpers;
+using Newtonsoft.Json;
+using Logic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,14 +30,14 @@ app.MapPost("/api/webhook/camply", async (HttpContext context) =>
 {
     using var reader = new StreamReader(context.Request.Body);
     var body = await reader.ReadToEndAsync();
-    
-    // ToDo: Add webhook flag for type of camply action
-    // If is search for specific site
-    // Returns single object
-    var campsiteSearchResult = CamplyResultParser.ExtractAndParseResult(body);
-    // If is search for specific campground to list all sites
-    // Returns a collection
-    var campgroundSiteListing = SiteListingParser.ParseNotifications(body);
+    CamplyResponse camplyResponse = JsonConvert.DeserializeObject<CamplyResponse>(body);
+
+    if(camplyResponse?.command == CamplyCommands.campsite.ToString()){
+        var campsiteSearchResult = CamplyResultParser.ExtractAndParseResult(camplyResponse.stdout);
+    }
+    else if(camplyResponse?.command == CamplyCommands.listcampsites.ToString()){
+        var campgroundSiteListing = SiteListingParser.ParseNotifications(camplyResponse.stdout);
+    }
 
     return Results.Ok();
 })
