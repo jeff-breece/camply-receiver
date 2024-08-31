@@ -33,13 +33,10 @@ app.MapPost("/api/webhook/camply", async (HttpContext context) =>
     CamplyResponse camplyResponse = JsonConvert.DeserializeObject<CamplyResponse>(body);
 
     if(camplyResponse?.command == CamplyCommands.campsite.ToString()){
-        // Returns single object
-        var campsiteSearchResult = CamplyResultParser.ExtractAndParseResult(body);
+        var campsiteSearchResult = CamplyResultParser.ExtractAndParseResult(camplyResponse.stdout);
     }
-    // If is search for specific campground to list all sites
     else if(camplyResponse?.command == CamplyCommands.listcampsites.ToString()){
-        // Returns a collection
-        var campgroundSiteListing = SiteListingParser.ParseNotifications(body);
+        var campgroundSiteListing = SiteListingParser.ParseNotifications(camplyResponse.stdout);
     }
 
     return Results.Ok();
