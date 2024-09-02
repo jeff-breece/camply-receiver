@@ -11,6 +11,8 @@ This code will act as middle ware for a bot assistant I am writing that will loo
 
 ### Goal Project Architecture (8/30/2024)
 
+*Needs Revised*
+
 1. **Microsoft Bot Assistant**: 
    - **Bot Interface**: This is where the bot interacts with users, receiving commands and sending responses.
    - **Azure Queue (Bot Queue)**: The bot subscribes to this queue to get responses from the API middleware. The bot listens for messages in this queue to receive search results.
