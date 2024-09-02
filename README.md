@@ -23,4 +23,7 @@ This code will act as middle ware for a bot assistant I am writing that will loo
    - **Search Results**: Once the search is executed, the results are prepared to be sent back to the bot.
    - **Add Result to Azure Queue**: The search results are added to the Azure Queue, which the Microsoft Bot Assistant subscribes to.
 
-### Status: In Progress
+### Status: POC In Progress
+- Create Python Script to run Camply (as the eventual Azure Function that will receive HTTP requests from the bot)
+- Create simple API project to figure out a path for a full implementation of the Camply bot integration results parser
+- Sketch out the goal architecture
