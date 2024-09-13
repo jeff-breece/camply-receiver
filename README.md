@@ -1,6 +1,6 @@
 # Camply Receiver
 
-The purpose of this code is to work with .Net Minimal API's to gain experience and to create a middleware between Camply, a super cool camping app for site searches and availability checking written in Python, and a Bot Project written in .Net.
+The purpose of this code is to work with .Net Minimal API's to gain experience and to create a Middleware between Camply, a super cool camping app for site searches and availability checking written in Python, and a Bot Project written in .Net.
 
 This code will act as middle ware for a bot assistant I am writing that will look like the following when I am done. THe goal is to give me some experience using the minimal API pattern to implement an API Middleware that is representative of what a client or an organization would typically do for something tactical like integrating with a piece of legacy code or an existing system to provide users with a desired UX. In my case this is a bot, that calls an API which will in turn execute the Camply codebase (the integration with the existing system idea from above) which then calls the API Middleware which produces the result for the bot to consume and present back to the user.
 
