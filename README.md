@@ -5,56 +5,13 @@ The purpose of this code is to work with .Net Minimal API's to gain experience a
 This code will act as middle ware for a bot assistant I am writing that will look like the following when I am done. THe goal is to give me some experience using the minimal API pattern to implement an API Middleware that is representative of what a client or an organization would typically do for something tactical like integrating with a piece of legacy code or an existing system to provide users with a desired UX. In my case this is a bot, that calls an API which will in turn execute the Camply codebase (the integration with the existing system idea from above) which then calls the API Middleware which produces the result for the bot to consume and present back to the user.
 
 
-### Architectural Diagram (8/30/2024)
-```
-+---------------------------------------+
-|           Microsoft Bot Assistant     |
-|                                       |
-|  +--------------------------------+   |
-|  |    Bot Interface                |  |
-|  |   (Interacts with Users)        |  |
-|  +--------------------------------+   |
-|                   |                   |
-|                   v                   |
-|     +--------------------------+      |
-|     |  Azure Queue (Bot Queue)  |     |
-|     | (Bot subscribes to this   |     |
-|     |  queue for responses)     |     |
-|     +--------------------------+      |
-|                   ^                   |
-|                   |                   |
-+---------------------------------------+
-                    |
-                    v
-+---------------------------------------+
-|          API Middleware               |
-| (Webhook to be used with the Python   |
-|  library by Jutfin Camply)            |
-|                                       |
-|  +-------------------------------+    |
-|  | Webhook Endpoint               |   |
-|  +-------------------------------+    |
-|                   |                   |
-|                   v                   |
-|     +--------------------------+      |
-|     | Python Script (Camply)    |     |
-|     | - Search constructors     |     |
-|     | - Executes search actions |     |
-|     +--------------------------+      |
-|                   |                   |
-|                   v                   |
-|   +--------------------------------+  |
-|   | Search Results (from Camply)   |  |
-|   +--------------------------------+  |
-|                   |                   |
-|                   v                   |
-|   +--------------------------------+  |
-|   |  Add Result to Azure Queue     |  |
-|   +--------------------------------+  |
-+---------------------------------------+
-```
+### Architectural Diagram (9/1/2024)
+![Current Architectural Plan](/Docs/camply-bot-integration.png)
+
 
 ### Goal Project Architecture (8/30/2024)
+
+*Needs Revised*
 
 1. **Microsoft Bot Assistant**: 
    - **Bot Interface**: This is where the bot interacts with users, receiving commands and sending responses.
@@ -68,4 +25,7 @@ This code will act as middle ware for a bot assistant I am writing that will loo
    - **Search Results**: Once the search is executed, the results are prepared to be sent back to the bot.
    - **Add Result to Azure Queue**: The search results are added to the Azure Queue, which the Microsoft Bot Assistant subscribes to.
 
-### Status: In Progress
+### Status: POC In Progress
+- Create Python Script to run Camply (as the eventual Azure Function that will receive HTTP requests from the bot)
+- Create simple API project to figure out a path for a full implementation of the Camply bot integration results parser
+- Sketch out the goal architecture
