@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0" version="24.7.8">
+  <diagram name="Page-1" id="t3Og4C455MdC-q9EuQs7">
+    <mxGraphModel dx="786" dy="523" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="W5rD-V6u1DY2A-7M9vGM-1" target="W5rD-V6u1DY2A-7M9vGM-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="W5rD-V6u1DY2A-7M9vGM-1" target="W5rD-V6u1DY2A-7M9vGM-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="390" as="targetPoint" />
+            <mxPoint x="260" y="210" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="W5rD-V6u1DY2A-7M9vGM-1" target="W5rD-V6u1DY2A-7M9vGM-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="W5rD-V6u1DY2A-7M9vGM-1" target="W5rD-V6u1DY2A-7M9vGM-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="W5rD-V6u1DY2A-7M9vGM-1" target="W5rD-V6u1DY2A-7M9vGM-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="170" />
+              <mxPoint x="460" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-1" value="Camping&amp;nbsp;&lt;div&gt;Bot&lt;/div&gt;&lt;div&gt;Skill&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="299" y="130" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="W5rD-V6u1DY2A-7M9vGM-2" target="W5rD-V6u1DY2A-7M9vGM-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-2" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-8" value="Camping Skill Solution" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="40" width="540" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-10" value="UI Layer" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-8">
+          <mxGeometry y="20" width="540" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-11" value="Services" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-8">
+          <mxGeometry y="220" width="540" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-4" value="Camply Receiver&lt;div&gt;(Azure&lt;/div&gt;&lt;div&gt;Function)&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-11">
+          <mxGeometry x="399" y="-130" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="W5rD-V6u1DY2A-7M9vGM-11" source="W5rD-V6u1DY2A-7M9vGM-4" target="W5rD-V6u1DY2A-7M9vGM-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-6" value="Camply Python&amp;nbsp;&lt;div&gt;Backend&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-11">
+          <mxGeometry x="399" y="19" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-14" value="Azure AI Language" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-11">
+          <mxGeometry x="189" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-16" value="Maps&amp;nbsp;&lt;div&gt;Service&lt;/div&gt;&lt;div&gt;(Bing)&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-11">
+          <mxGeometry x="294" y="19" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-20" value="Azure App Insights" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-11">
+          <mxGeometry x="189" y="110" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-21" value="Azure Key Vault" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-11">
+          <mxGeometry x="294" y="110" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-22" value="OAUTH" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-11">
+          <mxGeometry x="399" y="110" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-12" value="Storage" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="460" width="540" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-9" value="State" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-12">
+          <mxGeometry x="61" y="50" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-26" value="Telemetry" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="W5rD-V6u1DY2A-7M9vGM-12">
+          <mxGeometry x="150" y="50" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=52.5;entryPerimeter=0;" edge="1" parent="1" source="W5rD-V6u1DY2A-7M9vGM-1" target="W5rD-V6u1DY2A-7M9vGM-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="W5rD-V6u1DY2A-7M9vGM-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" edge="1" parent="1" source="W5rD-V6u1DY2A-7M9vGM-1" target="W5rD-V6u1DY2A-7M9vGM-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
