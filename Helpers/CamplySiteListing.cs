@@ -1,5 +1,5 @@
 using System;
-using System.Globalization;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace Helpers
@@ -9,16 +9,15 @@ namespace Helpers
         public static List<CamplyNotification> ParseNotifications(string notifications)
         {
             var notificationsList = new List<CamplyNotification>();
-            var regex = new Regex(@"Campsite non-electric #(?<campsiteNumber>\d+) - \(#(?<campsiteId>\d+)\)");
+            var regex = new Regex(@"(?<campsiteName>.*?) \(#(?<campsiteId>\d+)\)");
 
             foreach (Match match in regex.Matches(notifications))
             {
-                var campsiteNumber = match.Groups["campsiteNumber"].Value;
+                var campsiteName = match.Groups["campsiteName"].Value.Trim();
                 var campsiteId = match.Groups["campsiteId"].Value;
                 var notification = new CamplyNotification
                 {
-                    Site = $"Campsite non-electric #{campsiteNumber}",
-                    CampsiteNumber = campsiteNumber,
+                    Site = campsiteName,
                     CampsiteId = campsiteId
                 };
                 notificationsList.Add(notification);
@@ -26,5 +25,11 @@ namespace Helpers
 
             return notificationsList;
         }
+    }
+
+    public class CamplyNotification
+    {
+        public string Site { get; set; }
+        public string CampsiteId { get; set; }
     }
 }

@@ -1,69 +1,77 @@
 using System;
-using System.Globalization;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Models;
 
 namespace Helpers
 {
     public static class CamplyResultParser
     {
-        public static CampsiteSearchResult ParseResult(string stringA, string stringB, string stringC)
+        public static List<CampsiteSearchResult> ExtractAndParseResults(string stdout)
         {
-            var result = new CampsiteSearchResult();
+            var results = new List<CampsiteSearchResult>();
+            Console.WriteLine(stdout);
+            // Define regular expressions to capture different parts of the output
+            var datePattern = new Regex(@"ranging from (?<DateRange>\d{4}-\d{2}-\d{2} to \d{4}-\d{2}-\d{2})");
+            var campgroundPattern = new Regex(@"\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\] INFO\s+\p{So}\s+(?<Campground>[^\(]+)");
+            var urlPattern = new Regex(@"https?://[^\s]+");
+            var noReservablePattern = new Regex(@"0 Reservable Campsites Matching Search Preferences");
 
-            // Parse NumSites from String A
-            var numSitesMatch = Regex.Match(stringA, @"(\d+) Reservable Campsites");
-            if (numSitesMatch.Success && int.TryParse(numSitesMatch.Groups[1].Value, out int numSites))
-            {
-                result.NumSites = numSites;
-            }
+            // Temporary storage for capturing information for each site entry
+            string campgroundName = string.Empty;
+            string url = string.Empty;
 
-            // Parse DateAvailable from String B
-            var dateAvailableMatch = Regex.Match(stringB, @"\[(.*?)\]");
-            if (dateAvailableMatch.Success && DateTime.TryParse(dateAvailableMatch.Groups[1].Value, out DateTime dateAvailable))
-            {
-                result.DateAvailable = dateAvailable;
-            }
-
-            // Parse Campground from String C
-            var campgroundMatch = Regex.Match(stringC, @"Searching (.+) for availability");
+            // Extract campground name
+            var campgroundMatch = campgroundPattern.Match(stdout);
             if (campgroundMatch.Success)
             {
-                result.Campground = campgroundMatch.Groups[1].Value;
+                campgroundName = campgroundMatch.Groups["Campground"].Value.Trim();
             }
 
-            return result;
-        }
-
-        public static CampsiteSearchResult ExtractAndParseResult(string pythonOutput)
-        {
-            // Extract the needed parts from the output
-            string stringA = string.Empty;
-            string stringB = string.Empty;
-            string stringC = string.Empty;
-
-            // Extract "NumSites" information from the output
-            var numSitesMatch = Regex.Match(pythonOutput, @"(\d+) Reservable Campsites Matching Search Preferences");
-            if (numSitesMatch.Success)
+            // Extract URL if available
+            var urlMatch = urlPattern.Match(stdout);
+            if (urlMatch.Success)
             {
-                stringA = numSitesMatch.Value;
+                url = urlMatch.Value.Trim();
             }
 
-            // Extract "DateAvailable" information from the output
-            var dateAvailableMatch = Regex.Match(pythonOutput, @"\[(.*?)\]");
-            if (dateAvailableMatch.Success)
+            // Check if there are no reservable campsites
+            if (noReservablePattern.IsMatch(stdout))
             {
-                stringB = dateAvailableMatch.Value;
+                // If no reservable campsites, create a result with default values
+                results.Add(new CampsiteSearchResult
+                {
+                    SiteId = null,
+                    CampgroundName = campgroundName,
+                    AvailableDate = null,
+                    SiteUrl = null,
+                    IsReservable = false,
+                    AvailableSites = 0
+                });
             }
-
-            // Extract "Campground" information from the output
-            var campgroundMatch = Regex.Match(pythonOutput, @"Searching .+ for availability");
-            if (campgroundMatch.Success)
+            else
             {
-                stringC = campgroundMatch.Value;
+                // Loop over each date match in the stdout log
+                foreach (Match match in datePattern.Matches(stdout))
+                {
+                    var availableDate = match.Groups["DateRange"].Value;
+
+                    // Assume if we have dates, there may be available sites
+                    var result = new CampsiteSearchResult
+                    {
+                        SiteId = Guid.NewGuid().ToString(),
+                        CampgroundName = campgroundName,
+                        AvailableDate = availableDate,
+                        SiteUrl = url,
+                        IsReservable = true, // Setting true since we're in the available case
+                        AvailableSites = 1 // Placeholder, update if more logic for site count is added
+                    };
+
+                    results.Add(result);
+                }
             }
 
-            // Parse the extracted strings and return the result
-            return ParseResult(stringA, stringB, stringC);
+            return results;
         }
     }
 }

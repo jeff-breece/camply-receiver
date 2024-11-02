@@ -4,8 +4,8 @@ import requests
 # Search parameters
 campground_id = "554"
 campsite = "23738"
-start_date = "2024-08-31"
-end_date = "2024-09-01"
+start_date = "2024-10-31"
+end_date = "2024-11-01"
 provider = "OhioStateParks"
 webhook_url = "http://localhost:5000/api/webhook/camply"  # Use HTTP and port 5000
 
@@ -20,22 +20,22 @@ webhook_url = "http://localhost:5000/api/webhook/camply"  # Use HTTP and port 50
 # ToDo: Break this script out into one that reads from an input file or Web API to get a users search parameters from the BOT
 # Site Listing for a given park
 # Run the camply CLI command to list campsites
-#command = [
-#    "camply", "list-campsites",
-#    "--campground", str(campground_id),
-#    "--provider", provider
-#]
+command = [
+    "camply", "list-campsites",
+    "--campground", str(campground_id),
+    "--provider", provider
+]
 
 # Specific Site Search
 # camply campsites   --provider OhioStateParks   --campground 554   --campsite 23738   --start-date 2024-08-31   --end-date 2024-09-01
-command = [
-    "camply", "campground",
-    "--campground", str(campground_id),
-    "--campsite", str(campsite),
-    "--start-date", start_date,
-    "--end-date", end_date,
-    "--provider", provider
-]
+#command = [
+#    "camply", "campgrounds",
+#    "--campground", str(campground_id),
+#    #"--campsite", str(campsite),
+#    #"--start-date", start_date,
+#    #"--end-date", end_date,
+#    "--provider", provider
+#]
 
 print("Constructed command:", command)
 

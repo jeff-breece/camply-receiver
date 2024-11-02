@@ -9,7 +9,7 @@ camply campgrounds --search "Scioto Trail State Park" --provider OhioStateParks
 
 camply list-campsites --campground 553 --provider OhioStateParks
 
-camply campsites --campground 553 --provider OhioStateParks --start-date 2024-09-14 --end-date 2024-09-15
+camply campsites --campground 553 --provider OhioStateParks --start-date 2024-10-31 --end-date 2024-11-30
 
 camply campsites \
   --provider OhioStateParks \
@@ -17,3 +17,5 @@ camply campsites \
   --campsite 23739 \
   --start-date 2024-09-14 \
   --end-date 2024-09-15
+
+camply campsites --provider OhioStateParks --campground 554 --start-date 2024-09-14 --end-date 2024-09-15

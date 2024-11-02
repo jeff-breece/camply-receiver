@@ -1,7 +1,13 @@
-public class CamplyResponse
+using System.Collections.Generic;
+
+namespace Models
 {
-    public string command { get; set; }
-    public string stdout { get; set; }
-    public string stderr { get; set; }
-    public int returncode { get; set; }
+    public class CamplyResponse
+    {
+        public string Command { get; set; } = string.Empty;
+        public List<CampsiteSearchResult> Results { get; set; } = new List<CampsiteSearchResult>();
+        public string StdErr { get; set; } = string.Empty;
+
+        public string StdOut { get; set; }
+    }
 }

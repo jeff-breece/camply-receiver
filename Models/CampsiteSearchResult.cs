@@ -1,6 +1,9 @@
 public class CampsiteSearchResult
 {
-    public int NumSites { get; set; }
-    public DateTime DateAvailable { get; set; }
-    public string Campground { get; set; }
+    public string SiteId { get; set; }
+    public string CampgroundName { get; set; }
+    public string AvailableDate { get; set; }
+    public string SiteUrl { get; set; }
+    public bool IsReservable { get; set; }
+    public int AvailableSites { get; internal set; }
 }
