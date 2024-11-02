@@ -3,7 +3,7 @@ The purpose of this project is to integrate with the [Camply](https://juftin.com
 
 The general idea is to have a site UI for trip planning, a bot service that takes in user's queries vs just piping stuff through a command line or disparate reservation sites (as Camply offers a great many State and National services and the provider is actually a parameter). Further, with a strategic integration with various cognitive services, I beleive it's possible to provide a better more personalized reservation and trip planning epxerience for encouraing people (myself for now) to get outdoors.
 
-![Moondock Project - Design Challenge](./Images/)
+![Moondock Project - Design Challenge](./Images/moondock.jpg)
 
 ### Project Outline
 This architecture is designed to create an integrated, multi-functional system for campground booking and trip planning, building on the capabilities of the Camply Python library while adding a user-friendly interface, a conversational bot service, and potential cognitive service integrations for personalization.
